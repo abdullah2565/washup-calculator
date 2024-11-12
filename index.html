@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+      integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <title>Laundry Bill Calculator</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="main">
+        <div class="calculator-heading">
+          <h2>Calculate Your Laundry Bill</h2>
+          <p>
+            Confused about our KG pricing? It's simple. Choose your laundry items,
+            check their quantity, select your preferred service, and get your
+            laundry estimate right away.
+          </p>
+        </div>
+        <div class="calculator_item"></div>
+        <div class="calculator-item-details">
+          <div class="cid-head">
+            <h6 class="cid-h1">Title</h6>
+            <h6 class="cid-h2">Weight</h6>
+            <h6 class="cid-h3">Quantity</h6>
+            <h6 class="cid-h4">Choose Services</h6>
+            <h6 class="cid-h5">Delete</h6>
+          </div>
+        </div>
+        <div class="service"></div>
+      </div>
+      <div class="result calculator-quote-box">
+        <div class="cqb-head">
+          <div>
+            <h3>Calculate Your Bill</h3>
+            <h6>Approximate Conversion</h6>
+          </div>
+          <div class="cqb-head-items">
+            <h4><span id="serviceQuantity">0</span> Items Selected</h4>
+          </div>
+        </div>
+        <div class="price_div">
+          <div class="text_div">
+            <div class="heading">Total</div>
+            <div class="price" id="total">100</div>
+          </div>
+
+          <div class="text_div">
+            <div class="heading">Delivery Charges</div>
+            <div class="price" id="deliveryCharge">100</div>
+          </div>
+        </div>
+        <div class="calculator-total">
+          <h5>Grand <br />Total</h5>
+          <h6 id="grandTotal">Rs. <span id="grand_total">100</span></h6>
+          <input type="hidden" name="grand_total" value="100" />
+        </div>
+        <p>Free Laundry Pickup &amp; Delivery on Orders of Rs.700 or More.</p>
+        <button type="submit">Book Now</button>
+      </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Slick Carousel JavaScript CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+      integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        $(document).ready(function ($) {
+          // Initialize the Slick carousel
+          $(".calculator_item").slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            arrows: true,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                  infinite: true,
+                  dots: true,
+                },
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                },
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                },
+              },
+            ],
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
